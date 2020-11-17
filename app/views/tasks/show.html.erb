@@ -1,0 +1,28 @@
+<div class = "container">
+
+<div class = "petit-menu">
+  <h4>Détail de la tâche :</h4>
+  <h4 class = "task"><%= @task.title  %></h4>
+  <h4><%= link_to "back", tasks_path %></h4>
+</div>
+<h3><%= @task.details  %></h3>
+
+
+<div class = "ischeck">
+  <% case  @task.completed
+     when  true %>
+      <div class ="check"></div>
+      <h5>tache effectuée</h5>
+  <% when  false %>
+      <div class = "uncheck"></div>
+      <h5 class = "petit-bord">tache à faire</h5>
+  <% end %>
+  <h4><%= link_to "Update", edit_task_path %></h4>
+  <h4><%= link_to "Delete", task_path(@task),
+  method: :delete,
+  data: { confirm: "are you sur" } %>
+
+   </h4>
+</div>
+
+</div>
